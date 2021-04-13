@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, request
 
 app = Flask(__name__)
 
@@ -80,9 +80,10 @@ def promotion_image():
                     </html>'''
 
 
-@app.route('/astronaut_selection')
+@app.route('/astronaut_selection', methods=['POST', 'GET'])
 def astronaut_selection():
-    return f'''<!doctype html>
+    if request.method == 'GET':
+        return f'''<!doctype html>
                         <html lang="en">
                           <head>
                             <meta charset="utf-8">
@@ -100,95 +101,96 @@ def astronaut_selection():
                             <div class="mx-auto" style="width: 280px;">
                                 <h3>на участие в миссии</h3>
                             </div>
+                            <form class="login_form" method="post">
                             <div class="mx-auto" style="width: 380px;">
                               <div class="p-2 bg-dark text-white border"><label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" placeholder="Введите фамилию">
+                                  <input type="text" class="form-control" placeholder="Введите фамилию" name="surname">
                                 </div>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" placeholder="Введите имя">
+                                  <input type="text" class="form-control" placeholder="Введите имя" name="name">
                                 </div>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" placeholder="Введите адрес почты">
+                                  <input type="text" class="form-control" placeholder="Введите адрес почты" name="email">
                                 </div>
                                 <label for="basic-url" class="form-label">Какое у Вас образование?</label>
-                                <select class="form-select" aria-label="Пример выбора по умолчанию">
+                                <select class="form-select" aria-label="Пример выбора по умолчанию" name="education">
                                   <option selected>Начальное</option>
                                   <option value="1">Среднее</option>
                                   <option value="2">Высшее</option>
                                 </select>
                                 <label for="basic-url" class="form-label">Какие у Вас есть профессии?</label>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  <input class="form-check-input" type="checkbox" value="" name="professions" id="flexCheckDefault">
                                   <label class="form-check-label" for="flexCheckChecked">
                                     Инженер-исследователь
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  <input class="form-check-input" type="checkbox" value="" name="professions" id="flexCheckDefault">
                                   <label class="form-check-label" for="flexCheckChecked">
                                     Инженер-строитель
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  <input class="form-check-input" type="checkbox" value="" name="professions" id="flexCheckDefault">
                                   <label class="form-check-label" for="flexCheckChecked">
                                     Пилот
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  <input class="form-check-input" type="checkbox" value="" name="professions" id="flexCheckDefault">
                                   <label class="form-check-label" for="flexCheckChecked">
                                     Метеоролог
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  <input class="form-check-input" type="checkbox" value="" name="professions" id="flexCheckDefault">
                                   <label class="form-check-label" for="flexCheckChecked">
                                     Инженер по жизнеобеспечению
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  <input class="form-check-input" type="checkbox" value="" name="professions" id="flexCheckDefault">
                                   <label class="form-check-label" for="flexCheckChecked">
                                     Инженер по радиационной защите
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  <input class="form-check-input" type="checkbox" value="" name="professions" id="flexCheckDefault">
                                   <label class="form-check-label" for="flexCheckChecked">
                                     Врач
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  <input class="form-check-input" type="checkbox" value="" name="professions" id="flexCheckDefault">
                                   <label class="form-check-label" for="flexCheckChecked">
                                     Экзобиолог
                                   </label>
                                 </div>
                                 <label for="basic-url" class="form-label">Укажите пол</label>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                  <input class="form-check-input" type="radio" name="sex" id="flexRadioDefault2" checked>
                                   <label class="form-check-label" for="flexRadioDefault2">
                                     Мужской
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <input class="form-check-input" type="radio" name="sex" id="flexRadioDefault1">
                                   <label class="form-check-label" for="flexRadioDefault1">
                                     Женский
                                   </label>
                                 </div>
                                 <label for="basic-url" class="form-label">Почему Вы хотите принять участие в миссии?</label>
                                 <div class="input-group">
-                                  <textarea class="form-control" aria-label="С текстовым полем"></textarea>
+                                  <textarea class="form-control" aria-label="С текстовым полем" name="about"></textarea>
                                 </div>
                                 <label for="basic-url" class="form-label">Приложите фотографию</label>
                                 <div class="input-group mb-3">
-                                  <input type="file" class="form-control" id="inputGroupFile02">
+                                  <input type="file" class="form-control" id="inputGroupFile02" name="file">
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="accept">
                                   <label class="form-check-label" for="flexCheckDefault">
                                     Готовы остаться на Марсе?
                                   </label>
@@ -198,9 +200,12 @@ def astronaut_selection():
                                 </div>
                               </label></div>
                             </div>
+                            </form>
                           </body>
                           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
                         </html>'''
+    elif request.method == 'POST':
+        return "Форма отправлена"
 
 
 @app.route('/choice/Марс')
