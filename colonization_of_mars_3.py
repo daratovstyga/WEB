@@ -101,6 +101,7 @@ def astronaut_selection():
                             <div class="mx-auto" style="width: 280px;">
                                 <h3>на участие в миссии</h3>
                             </div>
+                            <form class="login_form" method="post">
                             <div class="mx-auto" style="width: 380px;">
                               <div class="p-2 bg-dark text-white border"><label>
                                 <div class="input-group mb-3">
@@ -199,6 +200,7 @@ def astronaut_selection():
                                 </div>
                               </label></div>
                             </div>
+                            </form>
                           </body>
                           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
                         </html>'''
