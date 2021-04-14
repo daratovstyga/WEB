@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="static/css/style2.css" />
+{% endblock %}
+{% block content %}
+<p>Фамилия: {{surname}}</p>
+<p>Имя: {{name}}</p>
+<p>Образование: {{education}}</p>
+<p>Профессия: {{profession}}</p>
+<p>Пол: {{sex}}</p>
+<p>Мотивация: {{motivation}}</p>
+<p>Готовы остаться на Марсе? {{ready}}</p>
+{% endblock %}
