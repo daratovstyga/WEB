@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if 'инженер' in prof or 'строитель' in prof %}
+    <div class="mx-auto" style="width: 480px;">
+        <h2>Инженерные тренажеры</h2>
+        <img src="\static\img\ing.png">
+    </div>
+{% else %}
+    <div class="mx-auto" style="width: 480px;">
+        <h2>Научные симуляторы</h2>
+        <img src="\static\img\sci.png">
+    </div>
+{% endif %}
+{% endblock %}
