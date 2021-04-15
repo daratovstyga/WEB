@@ -203,8 +203,8 @@ def astronaut_selection():
                         </html>'''
 
 
-@app.route('/choice/Марс')
-def mars():
+@app.route('/choice/<planet>')
+def planet_choice(planet):
     return f'''<!doctype html>
                     <html lang="en">
                       <head>
@@ -216,8 +216,8 @@ def mars():
                         <title>Варианты выбора</title>
                       </head>
                       <body>
-                        <h1>Мое предложение: Марс!</h1>
-                        <h2>Марс - лучшая планета!</h2>
+                        <h1>Мое предложение: {planet}!</h1>
+                        <h2>{planet} - лучшая планета!</h2>
                         <div class="alert alert-primary" role="alert">
                           <br>Всё
                         </div>
@@ -232,41 +232,6 @@ def mars():
                         </div>
                         <div class="alert alert-danger" role="alert">
                           <br>И красиво
-                        </div>
-                      </body>
-                      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-                    </html>'''
-
-
-@app.route('/choice/Юпитер')
-def jupiter():
-    return f'''<!doctype html>
-                    <html lang="en">
-                      <head>
-                        <meta charset="utf-8">
-                        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-                        rel="stylesheet"
-                        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-                        crossorigin="anonymous">
-                        <title>Варианты выбора</title>
-                      </head>
-                      <body>
-                        <h1>Мое предложение: Юпитер!</h1>
-                        <h2>Юпитер - лучший газовый гигант!</h2>
-                        <div class="alert alert-primary" role="alert">
-                          <br>Всё
-                        </div>
-                        <div class="alert alert-success" role="alert">
-                          <br>Супер
-                        </div>
-                        <div class="alert alert-secondary" role="alert">
-                          <br>Круто
-                        </div>
-                        <div class="alert alert-warning" role="alert">
-                          <br>Классно
-                        </div>
-                        <div class="alert alert-danger" role="alert">
-                          <br>Это ловушка
                         </div>
                       </body>
                       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
